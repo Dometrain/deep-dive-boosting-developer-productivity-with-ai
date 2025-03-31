@@ -1,0 +1,48 @@
+@HostAddressRoot = https://localhost:7222
+  
+GET {{HostAddressRoot}}/orders
+Accept: application/json
+
+###
+
+GET {{HostAddressRoot}}/orders?includeOrderLines=true
+Accept: application/json
+
+### 
+
+GET {{HostAddressRoot}}/orders/1
+Accept: application/json
+
+###
+
+GET {{HostAddressRoot}}/orders/3/orderlines
+Accept: application/json
+
+###
+
+GET {{HostAddressRoot}}/orders/3/orderlines/3
+Accept: application/json
+
+###
+POST {{HostAddressRoot}}/orders
+Content-Type: application/json
+
+{
+  "title": "New Order",
+  "description": "This is a new order with two order lines.",
+  "orderDate": "2023-10-01T00:00:00Z",
+  "shippingDate": "2023-10-05T00:00:00Z",
+  "orderTotal": 150.00,
+  "orderLines": [
+    {
+      "productId": 1,
+      "quantity": 2,
+      "price": 50.00
+    },
+    {
+      "productId": 2,
+      "quantity": 1,
+      "price": 50.00
+    }
+  ]
+}

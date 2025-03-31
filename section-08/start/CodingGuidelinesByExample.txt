@@ -1,0 +1,26 @@
+These are example classes and variables that must serve as coding guidelines for generated C# code.
+When generating code, use the following sample code and guidelines to base yourself on.  
+
+Repositories must return IQueryable<> instead of IEnumerable<> or List<>, unless explicitly stated otherwise.
+Example input 1: Generate a repository that returns Orders
+Expected outcome 1: 
+public class RepositoryCodingExample : IRepositoryCodingExample 
+{
+  private readonly MyDbContext _context; 
+  
+  public async Task<IQueryable<Order>> GetOrdersAsync()
+  {
+    return await _context.Orders.ToListAsync();
+  }
+}
+Example input 2: Generate a repository that returns a List of Orders
+Expected outcome 2: 
+public class RepositoryCodingExample : IRepositoryCodingExample 
+{
+  private readonly MyDbContext _context; 
+  
+  public async Task<List<Order>> GetOrdersAsync()
+  {
+    return await _context.Orders.ToListAsync();
+  }
+}

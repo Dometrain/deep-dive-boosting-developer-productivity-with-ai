@@ -1,0 +1,24 @@
+@HostAddressRoot = https://localhost:7222
+  
+GET {{HostAddressRoot}}/orders
+Accept: application/json
+
+###
+
+GET {{HostAddressRoot}}/orders?includeOrderLines=true
+Accept: application/json
+
+### 
+
+GET {{HostAddressRoot}}/orders/1
+Accept: application/json
+
+###
+
+GET {{HostAddressRoot}}/orders/3/orderlines
+Accept: application/json
+
+###
+
+GET {{HostAddressRoot}}/orders/3/orderlines/3
+Accept: application/json
